@@ -1,0 +1,98 @@
+### KTH - 9/24/19 - this file contains my notes while learning GIT, primarily through the command line.  Most developers should ignore this and go to the dev_env document
+
+
+KTH -- USEFUL COMMANDS --
+
+git --help
+
+git init
+git clone
+
+
+git status 
+
+## to change users
+git config user.email
+git config --global user.email "myemail@gmail.com"
+git config user.name
+git config --global user.name "Hagan"
+
+## useful
+git config -l
+
+## when I got perms errors trying to check in
+## this worked from https://www.freecodecamp.org/forum/t/need-your-help-with-github-permission-denied-to-my-own-repo/17421/4
+@MrsColombo I had this problem too but managed to solve it, the error is that ur computer has saved a git username and password so if you shift to another account the error 403 will appear. Below is the solution
+For Windows you can find the keys here:
+
+control panel > user accounts > credential manager > Windows credentials > Generic credentials
+
+Next remove the Github keys.
+## this did not work
+git remote set-url origin git@github.com:MrsColombo/elsevier-twitter-rest-api.git
+git remote set-url origin git@github.com:kthagan/hello_world.git
+
+## **** KTH notes 9/23/19 - the real solution is that you need to add collaborators in GitHub
+## goto https://github.com/TyHagan/project8/settings/collaboration
+## link to full instructions -- https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
+
+--- this seems to be the sequence
+git add
+git commit
+git push
+
+-- pull to local disk, i.e. connect to a repository
+git clone <repo_URL>  -- I think this is what I want.  YES!   Example:  git clone https://github.com/kthagan/repo1.git
+git pull
+
+
+--create new repostory --   see https://kbroman.org/github_tutorial/pages/init.html
+git init <dir name>
+
+
+-- revert a file to the HEAD.  Useful when GIT thinks you have local changes that you just want to ignore/revert
+git checkout <filename>
+
+
+## KH comment on 10/3/19
+
+9/21 questions:
+--where is repo3?  who ownes it?  how do I sync it to another device? -- I really don't know
+
+
+OK, let's focus on repo1 for now?  let's try and get that little piece working...
+--OK, I have it on 2 computers.  I don't know how to connect to a new place.  let's try
+
+
+OK, so the last piece is to have multiple users "clone" the directory and do checkins, etc.
+
+also, how do I create a new reposiory?
+
+## updating to the latest version of GIT  (as of 9/23/19 running Git for Windows 2.23.0)
+#use "git update" 
+$ git update
+Warning! `git update` has been deprecated;
+Please use `git update-git-for-windows` instead.
+Git for Windows 2.17.1.windows.2 (64bit)
+Update 2.23.0.windows.1 is available
+Download and install Git for Windows 2.23.0 [N/y]? y
+
+
+
+
+####  9/21  KTH old stuff
+Git Ideas
+
+-- GitHub Desktop -- this may be a good tool
+
+--how integrate Git with Unity?
+
+--how view revision history?
+
+--how pull files to local disk?
+
+
+OK, my repo is not showing up.  let's go look around
+
+
+
