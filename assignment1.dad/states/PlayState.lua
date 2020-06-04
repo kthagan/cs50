@@ -31,8 +31,12 @@ function PlayState:update(dt)
     -- update timer for pipe spawning
     self.timer = self.timer + dt
 
+    -- KTH HERE - spawn interval for PipePair
+    local spawnInterval = 2
+    spawnInterval = math.random(1, 10)
+
     -- spawn a new pipe pair every second and a half
-    if self.timer > 2 then
+    if self.timer > spawnInterval then
         -- modify the last Y coordinate we placed so pipe gaps aren't too far apart
         -- no higher than 10 pixels below the top edge of the screen,
         -- and no lower than a gap length (90 pixels) from the bottom
