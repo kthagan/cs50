@@ -22,12 +22,14 @@ function PlayState:init()
     self.pipePairs = {}
     self.timer = 0
     self.score = 0
+    self.paused = false
 
     -- initialize our last recorded Y value for a gap placement to base other gaps off of
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
 end
 
 function PlayState:update(dt)
+if not self.paused then
     -- update timer for pipe spawning
     self.timer = self.timer + dt
 
@@ -104,9 +106,29 @@ function PlayState:update(dt)
         })
     end
 
+else  -- KTH else we are paused
+    -- render pause string big in the middle of the screen
+    love.graphics.setFont(hugeFont)
+    love.graphics.printf("||", 0, 120, VIRTUAL_WIDTH, 'center')
+end
+
     -- KTH - trying pause implementation here
     if love.keyboard.wasPressed('p') then
-	gStateMachine:change('pause')
+
+	if self.paused then
+	    self.paused = false
+    	    scrolling = true
+	    self.score = self.score + 10
+	else
+	    self.paused = true
+    	    scrolling = false
+	    self.score = self.score + 100
+	
+
+	end
+
+	-- KTH this seemed like a more elegant solution, but going back to play lost game state
+	-- gStateMachine:change('pause')
     end
 end
 
