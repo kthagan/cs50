@@ -115,11 +115,13 @@ end
     -- KTH - trying pause implementation here
     if love.keyboard.wasPressed('p') then
 	if gPaused then
-	    -- DEBUG self.score = self.score + 10
 	    gPaused = false
+	    sounds['music']:resume()
+	    -- DEBUG self.score = self.score + 10
 	else
-	    -- DEBUG self.score = self.score + 100
 	    gPaused = true
+	    sounds['music']:pause()
+	    -- DEBUG self.score = self.score + 100
 	end
 	sounds['pause']:play()
 
