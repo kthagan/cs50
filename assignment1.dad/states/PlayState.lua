@@ -105,7 +105,8 @@ if not gPaused then
         })
     end
 
-else  -- KTH else we are paused
+else  -- else we are paused
+    -- KTH - this does not work.  not sure why, but it does in main.lua, so leaving it there
     -- render pause string big in the middle of the screen
     love.graphics.setFont(hugeFont)
     love.graphics.printf("||", 0, 120, VIRTUAL_WIDTH, 'center')

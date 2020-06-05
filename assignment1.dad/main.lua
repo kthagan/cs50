@@ -178,6 +178,12 @@ function love.draw()
     love.graphics.draw(background, -backgroundScroll, 0)
     gStateMachine:render()
     love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 16)
+
+    -- KTH try here
+    if gPaused then
+	love.graphics.setFont(hugeFont)
+	love.graphics.printf("||", 0, 120, VIRTUAL_WIDTH, 'center')
+    end
     
     push:finish()
 end
