@@ -22,14 +22,13 @@ function PlayState:init()
     self.pipePairs = {}
     self.timer = 0
     self.score = 0
-    self.paused = false
 
     -- initialize our last recorded Y value for a gap placement to base other gaps off of
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
 end
 
 function PlayState:update(dt)
-if not self.paused then
+if not gPaused then
     -- update timer for pipe spawning
     self.timer = self.timer + dt
 
@@ -115,14 +114,12 @@ end
     -- KTH - trying pause implementation here
     if love.keyboard.wasPressed('p') then
 
-	if self.paused then
-	    self.paused = false
+	if gPaused then
 	    self.score = self.score + 10
-	    gPaused = true
-	else
-	    self.paused = true
-	    self.score = self.score + 100
 	    gPaused = false
+	else
+	    self.score = self.score + 100
+	    gPaused = true
 	end
 
 	-- KTH this seemed like a more elegant solution, but going back to play lost game state
