@@ -117,14 +117,12 @@ end
 
 	if self.paused then
 	    self.paused = false
-    	    scrolling = true
 	    self.score = self.score + 10
+	    gPaused = true
 	else
 	    self.paused = true
-    	    scrolling = false
 	    self.score = self.score + 100
-	
-
+	    gPaused = false
 	end
 
 	-- KTH this seemed like a more elegant solution, but going back to play lost game state
@@ -147,14 +145,10 @@ end
     Called when this state is transitioned to from another state.
 ]]
 function PlayState:enter()
-    -- if we're coming from death, restart scrolling
-    scrolling = true
 end
 
 --[[
     Called when this state changes to another state.
 ]]
 function PlayState:exit()
-    -- stop scrolling for the death/score screen
-    scrolling = false
 end
