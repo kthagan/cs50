@@ -113,14 +113,14 @@ end
 
     -- KTH - trying pause implementation here
     if love.keyboard.wasPressed('p') then
-
 	if gPaused then
-	    self.score = self.score + 10
+	    -- DEBUG self.score = self.score + 10
 	    gPaused = false
 	else
-	    self.score = self.score + 100
+	    -- DEBUG self.score = self.score + 100
 	    gPaused = true
 	end
+	sounds['pause']:play()
 
 	-- KTH this seemed like a more elegant solution, but going back to play lost game state
 	-- gStateMachine:change('pause')
