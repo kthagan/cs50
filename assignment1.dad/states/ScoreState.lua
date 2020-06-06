@@ -21,9 +21,9 @@ local GOLD_LEVEL = 6
 function ScoreState:enter(params)
     self.score = params.score
     self.medals = {
-	['Bronze'] = love.graphics.newImage('images/bird.png'),
-	['Silver'] = love.graphics.newImage('images/bird.png'),
-	['Gold'] = love.graphics.newImage('images/bird.png')
+	['Bronze'] = love.graphics.newImage('images/medal_bronze.jpg'),
+	['Silver'] = love.graphics.newImage('images/medal_silver.jpg'),
+	['Gold'] = love.graphics.newImage('images/medal_gold.jpg')
     }
 end
 
@@ -59,5 +59,5 @@ function ScoreState:render()
 	love.graphics.draw(medalImg, medalX, 140)
     end
 
-    love.graphics.printf('Press Enter to Play Again!', 0, 180, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Enter to Play Again!', 0, 195, VIRTUAL_WIDTH, 'center')
 end
