@@ -5,14 +5,15 @@ function PowerUp:init(skin)
     self.width = 8
     self.height = 8
 
-    -- these variables are for keeping track of our velocity on both the
-    -- X and Y axis, since the ball can move in two dimensions
-    self.dy = 0
-    self.dx = 0
-
     -- this will effectively be the color of our ball, and we will index
     -- our table of Quads relating to the global block texture using this
     self.skin = skin
+
+    -- set initial x, y and velocities
+    self.x = VIRTUAL_WIDTH / 2 - 2
+    self.y = self.height + 10 -- start near top of screen
+    self.dx = 0
+    self.dy = 10  -- 10 seems to be a nice fall rate
 end
 
 --[[
@@ -37,6 +38,7 @@ function PowerUp:collides(target)
 end
 
 --[[
+KTH - I think we will delete this function
     Places the ball in the middle of the screen, with no movement.
 ]]
 function PowerUp:reset()

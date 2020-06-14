@@ -17,6 +17,7 @@ require 'src/constants'
 
 -- the ball that travels around, breaking bricks and triggering lives lost
 require 'src/Ball'
+require 'src/PowerUp'
 
 -- the entities in our game map that give us points when we collide with them
 require 'src/Brick'
