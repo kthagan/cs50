@@ -58,6 +58,13 @@ function PlayState:update(dt)
     self.ball:update(dt)
     self.powerUp:update(dt)
 
+    -- KTH HERE - dealing with powerup hitting paddle
+    if self.powerUp:collides(self.paddle) then
+        gSounds['high-score']:play()
+
+	-- need to spawn two new balls
+    end
+
     if self.ball:collides(self.paddle) then
         -- raise ball above paddle in case it goes below it, then reverse dy
         self.ball.y = self.paddle.y - 8
