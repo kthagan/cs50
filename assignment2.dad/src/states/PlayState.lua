@@ -37,7 +37,6 @@ function PlayState:enter(params)
     --
     -- KTH HERE - init a PowerUp
     self.powerUp = PowerUp()
-    self.powerUp.skin = 1
 end
 
 function PlayState:update(dt)

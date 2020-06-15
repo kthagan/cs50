@@ -1,14 +1,9 @@
 PowerUp = Class{}
 
--- KTH FIX -- where is this skin parameter?
-function PowerUp:init(skin)
+function PowerUp:init()
     -- simple positional and dimensional variables
     self.width = 16
     self.height = 16
-
-    -- this will effectively be the color of our ball, and we will index
-    -- our table of Quads relating to the global block texture using this
-    self.skin = skin
 
     -- set initial x, y and velocities
     self.x = math.random(self.width + 5, VIRTUAL_WIDTH - self.width - 5)
