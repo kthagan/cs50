@@ -1,9 +1,10 @@
 PowerUp = Class{}
 
+-- KTH FIX -- where is this skin parameter?
 function PowerUp:init(skin)
     -- simple positional and dimensional variables
-    self.width = 8
-    self.height = 8
+    self.width = 16
+    self.height = 16
 
     -- this will effectively be the color of our ball, and we will index
     -- our table of Quads relating to the global block texture using this
@@ -73,8 +74,7 @@ function PowerUp:update(dt)
 end
 
 function PowerUp:render()
-    -- gTexture is our global texture for all blocks
-    -- gPowerUpFrames is a table of quads mapping to each individual ball skin in the texture
-    love.graphics.draw(gTextures['main'], gFrames['balls'][self.skin],
+    -- index 9 is the add a ball powerup graphic
+    love.graphics.draw(gTextures['main'], gFrames['powerUps'][9],
         self.x, self.y)
 end

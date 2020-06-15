@@ -38,7 +38,6 @@ function PlayState:enter(params)
     -- KTH HERE - init a PowerUp
     self.powerUp = PowerUp()
     self.powerUp.skin = 1
-    -- ORIG self.ball.skin = math.random(7)
 end
 
 function PlayState:update(dt)
