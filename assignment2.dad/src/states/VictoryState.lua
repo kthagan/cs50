@@ -19,8 +19,11 @@ function VictoryState:enter(params)
     self.highScores = params.highScores
     self.paddle = params.paddle
     self.health = params.health
-    self.ball = params.ball
+    self.balls = params.balls
     self.recoverPoints = params.recoverPoints
+
+    -- KTH try this hack
+    self.ball = self.balls[1]
 end
 
 function VictoryState:update(dt)

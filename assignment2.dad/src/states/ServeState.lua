@@ -29,6 +29,7 @@ function ServeState:enter(params)
     -- init new ball (random color for fun)
     self.ball = Ball()
     self.ball.skin = math.random(7)
+    self.balls = { self.ball }
 end
 
 function ServeState:update(dt)
@@ -45,7 +46,7 @@ function ServeState:update(dt)
             health = self.health,
             score = self.score,
             highScores = self.highScores,
-            ball = self.ball,
+            balls = self.balls,
             level = self.level,
             recoverPoints = self.recoverPoints
         })
