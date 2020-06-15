@@ -62,13 +62,6 @@ for k, ball in pairs(self.balls) do
 end
     self.powerUp:update(dt)
 
-    -- KTH HERE - dealing with powerup hitting paddle
-    if self.powerUp:collides(self.paddle) then
-        gSounds['high-score']:play()
-
-	-- need to spawn two new balls
-    end
-
 for k, ball in pairs(self.balls) do
     if ball:collides(self.paddle) then
         -- raise ball above paddle in case it goes below it, then reverse dy
@@ -211,6 +204,22 @@ end
     -- for rendering particle systems
     for k, brick in pairs(self.bricks) do
         brick:update(dt)
+    end
+
+    -- KTH HERE - dealing with powerup hitting paddle
+    if self.powerUp:collides(self.paddle) and self.powerUp.inPlay then
+        gSounds['high-score']:play()
+
+	-- need to spawn two new balls
+	for i = 0,1 do
+	    local ball = Ball()
+	    ball.skin = math.random(7)
+	    ball.x = self.paddle.x + (self.paddle.width / 2) - 4
+	    ball.y = self.paddle.y - 8
+	    table.insert(self.balls, ball)
+        end
+
+	self.powerUp.inPlay = false  -- only allow the ball spawning to happen once
     end
 
     if love.keyboard.wasPressed('escape') then

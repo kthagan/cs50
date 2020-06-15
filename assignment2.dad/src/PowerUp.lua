@@ -9,6 +9,8 @@ function PowerUp:init()
     self.x = math.random(self.width + 5, VIRTUAL_WIDTH - self.width - 5)
     self.y = self.height + 10 -- start near top of screen
     self.dy = 25  -- 25 seems to be a nice fall rate; may need to take into account frame rate
+
+    self.inPlay = true
 end
 
 --[[
