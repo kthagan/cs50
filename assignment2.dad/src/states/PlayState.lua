@@ -216,6 +216,8 @@ end
 	    ball.skin = math.random(7)
 	    ball.x = self.paddle.x + (self.paddle.width / 2) - 4
 	    ball.y = self.paddle.y - 8
+            ball.dx = math.random(-200, 200)
+            ball.dy = math.random(-50, -60)
 	    table.insert(self.balls, ball)
         end
 
