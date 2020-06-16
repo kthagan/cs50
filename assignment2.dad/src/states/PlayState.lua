@@ -208,7 +208,7 @@ end
 
     -- KTH HERE - dealing with powerup hitting paddle
     if self.powerUp:collides(self.paddle) and self.powerUp.inPlay then
-        gSounds['high-score']:play()
+	self.powerUp:hit()  -- play sound, emit particles, etc
 
 	-- need to spawn two new balls
 	for i = 0,1 do
@@ -220,8 +220,6 @@ end
             ball.dy = math.random(-50, -60)
 	    table.insert(self.balls, ball)
         end
-
-	self.powerUp.inPlay = false  -- only allow the ball spawning to happen once
     end
 
     if love.keyboard.wasPressed('escape') then
