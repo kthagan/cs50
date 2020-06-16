@@ -37,7 +37,7 @@ for k, ball in pairs(self.balls) do
     ball.dy = math.random(-50, -60)
 end
 
-    -- KTH HERE - init a PowerUp
+    -- init a PowerUp
     self.powerUp = PowerUp()
 end
 
@@ -179,6 +179,12 @@ end
     -- if ball goes below bounds, revert to serve state and decrease health
 for k, ball in pairs(self.balls) do
     if ball.y >= VIRTUAL_HEIGHT then
+        table.remove(self.balls, k)
+    end
+end
+
+    local tCount = table.getn(self.balls)
+    if tCount == 0 then
         self.health = self.health - 1
         gSounds['hurt']:play()
 
@@ -199,14 +205,13 @@ for k, ball in pairs(self.balls) do
             })
         end
     end
-end
 
     -- for rendering particle systems
     for k, brick in pairs(self.bricks) do
         brick:update(dt)
     end
 
-    -- KTH HERE - dealing with powerup hitting paddle
+    -- deal with powerup hitting paddle
     if self.powerUp:collides(self.paddle) and self.powerUp.inPlay then
 	self.powerUp:hit()  -- play sound, emit particles, etc
 
