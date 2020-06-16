@@ -16,11 +16,11 @@ function PowerUp:init()
     self.psystem = love.graphics.newParticleSystem(gTextures['particle'], 64)
 
     -- lasts between 0.5-1 seconds seconds
-    self.psystem:setParticleLifetime(0.5, 1)
+    self.psystem:setParticleLifetime(1, 1.5)
 
     -- give it an acceleration of anywhere between X1,Y1 and X2,Y2 (0, 0) and (80, 80) here
-    -- gives generally downward
-    self.psystem:setLinearAcceleration(-15, 0, 15, 80)
+    -- gives generally upward
+    self.psystem:setLinearAcceleration(-15, 0, 15, -80)
 
     -- spread of particles; normal looks more natural than uniform
     self.psystem:setAreaSpread('normal', 10, 10)
@@ -75,6 +75,7 @@ end
 
 function PowerUp:update(dt)
     self.y = self.y + self.dy * dt
+    self.psystem:update(dt)
 end
 
 function PowerUp:hit()
@@ -89,4 +90,5 @@ function PowerUp:render()
         love.graphics.draw(gTextures['main'], gFrames['powerUps'][9],
             self.x, self.y)
     end
+    love.graphics.draw(self.psystem, self.x + 8, self.y + 8)
 end
