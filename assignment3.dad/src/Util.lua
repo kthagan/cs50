@@ -83,3 +83,11 @@ function print_r ( t )
     end
     print()
 end
+
+-- limit the number of colors because I find too many of them similar
+function limitColor()
+    local ret = math.random(18)   -- use all colors
+    ret = math.random(6) * 3;  -- only use 1/3 of the colors
+    -- ret = math.random(9) * 2;  -- only use 1/2 of the colors
+    return ret
+end
