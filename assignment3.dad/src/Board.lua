@@ -13,9 +13,10 @@
 
 Board = Class{}
 
-function Board:init(x, y)
+function Board:init(x, y, level)
     self.x = x
     self.y = y
+    self.level = level
     self.matches = {}
 
     self:initializeTiles()
@@ -30,7 +31,7 @@ function Board:initializeTiles()
 
         for tileX = 1, 8 do
             -- create a new tile at X,Y with a random color and variety
-	    local variety = 1  -- only use the blank tile
+	    local variety = math.random(self.level)
 
             table.insert(self.tiles[tileY], Tile(tileX, tileY, limitColor(), variety))
             -- ORIG table.insert(self.tiles[tileY], Tile(tileX, tileY, math.random(18), math.random(6)))
@@ -240,6 +241,7 @@ function Board:getFallingTiles()
             if not tile then
 
                 -- new tile with random color and variety
+		-- KTH HERE need to track level
                 local tile = Tile(x, y, limitColor(), math.random(6))
                 tile.y = -32
                 self.tiles[y][x] = tile
