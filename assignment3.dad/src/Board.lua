@@ -239,10 +239,9 @@ function Board:getFallingTiles()
 
             -- if the tile is nil, we need to add a new one
             if not tile then
-
                 -- new tile with random color and variety
-		-- KTH HERE need to track level
-                local tile = Tile(x, y, limitColor(), math.random(6))
+                local variety = math.random(self.level)
+                local tile = Tile(x, y, limitColor(), variety)
                 tile.y = -32
                 self.tiles[y][x] = tile
 
