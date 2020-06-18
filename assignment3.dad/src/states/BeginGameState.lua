@@ -15,23 +15,17 @@
 BeginGameState = Class{__includes = BaseState}
 
 function BeginGameState:init()
-    
     -- start our transition alpha at full, so we fade in
     self.transitionAlpha = 255
-
-    -- spawn a board and place it toward the right
-    self.level = 1
-    self.board = Board(VIRTUAL_WIDTH - 272, 16, self.level)
 
     -- start our level # label off-screen
     self.levelLabelY = -64
 end
 
 function BeginGameState:enter(def)
-    
-    -- grab level # from the def we're passed
+    -- grab level # from the def we're passed and spawn a board and place it toward the right
     self.level = def.level
-    self.board.level = self.level
+    self.board = Board(VIRTUAL_WIDTH - 272, 16, self.level)
 
     --
     -- animate our white screen fade-in, then animate a drop-down with

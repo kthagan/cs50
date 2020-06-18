@@ -16,7 +16,7 @@ Board = Class{}
 function Board:init(x, y, level)
     self.x = x
     self.y = y
-    self.level = level
+    self.level = level % 6 -- KTH this isn't exactly right
     self.matches = {}
 
     self:initializeTiles()
